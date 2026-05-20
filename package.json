@@ -19,6 +19,7 @@
     "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.0",
     "@vitest/browser": "^4.1.6",
+    "dotenv": "^17.4.2",
     "eslint": "^10.4.0",
     "globals": "^17.6.0",
     "jsdom": "^29.1.1",
