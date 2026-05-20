@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { CONFIG } from "../../config.js";
+import { CONFIG } from "../../js/config.js";
 
 test.describe("login", () => {
   test("user can log in", async ({ page }) => {
