@@ -15,7 +15,7 @@ const createVenueCard = (venue) => {
   card.className = "bg-cover bg-center h-64 rounded-lg shadow-md";
   card.href = `/venue/?id=${id}`;
 
-  const imageUrl = media?.[0] || "https://placehold.co/400x400";
+  const imageUrl = media?.[0]?.url || "https://placehold.co/400x400";
   card.style.backgroundImage = `url(${imageUrl})`;
 
   return card;

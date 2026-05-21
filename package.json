@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently -k -n css,server -c blue,green \"npm run dev:css\" \"npm run dev:serve\"",
+    "env": "node scripts/generate-env.mjs",
+    "dev": "npm run env && concurrently -k -n css,server -c blue,green \"npm run dev:css\" \"npm run dev:serve\"",
     "dev:css": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
     "dev:serve": "live-server --port=3000 --open=/ --wait=300 --ignore=node_modules,test-results,playwright-report,.git,tests",
     "lint": "eslint",
     "format": "prettier . --write",
     "prepare": "husky install",
     "vitest": "vitest",
-    "playwright": "npx playwright test --ui"
+    "playwright": "npm run env && npx playwright test --ui"
   },
   "keywords": [],
   "author": "",

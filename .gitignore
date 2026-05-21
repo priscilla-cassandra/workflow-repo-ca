@@ -1,6 +1,9 @@
 node_modules/
 .env
 
+# Generated from .env by `npm run env`
+js/env.js
+
 # Playwright
 /test-results/
 /playwright-report/
