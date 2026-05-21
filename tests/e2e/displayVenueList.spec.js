@@ -7,11 +7,17 @@ test.describe("displayVenueList", () => {
     await expect(page.locator("#venue-container")).toHaveText("Loading...");
   });
 
-  test("Clicks the first venue", async ({ page }) => {
+  test("Clicks the first venue, and venue details page loads with 'Venue details' in the heading", async ({
+    page,
+  }) => {
     await page.goto("http://127.0.0.1:5500/");
 
     await page.locator(".bg-cover").first().click();
 
     await expect(page).toHaveURL(/id=/);
+
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Venue details" }),
+    );
   });
 });
