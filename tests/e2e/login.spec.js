@@ -12,13 +12,17 @@ test.describe("login", () => {
 
     await page.getByRole("button", { name: "Login" }).click();
 
-    await expect(page.locator("#logoutButton")).toBeVisible();
+    const accessToken = await page.evaluate(() =>
+      localStorage.getItem("accessToken"),
+    );
+
+    expect(accessToken).toBeTruthy();
   });
 
   test("invalid credentials for login shows error message", async ({
     page,
   }) => {
-    await page.goto("http://127.0.0.1:5500/login/index.html/");
+    await page.goto("http://127.0.0.1:5500/login/index.html");
 
     await page.locator('input[name="email"]').fill(process.env.TEST_USER_EMAIL);
 
@@ -27,7 +31,7 @@ test.describe("login", () => {
     await page.getByRole("button", { name: "Login" }).click();
 
     await expect(page.locator("#message-container")).toContainText(
-      "Login failed",
+      "Invalid email or password",
     );
   });
 });
