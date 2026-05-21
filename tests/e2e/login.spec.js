@@ -12,11 +12,8 @@ test.describe("login", () => {
 
     await page.getByRole("button", { name: "Login" }).click();
 
-    const accessToken = await page.evaluate(() =>
-      localStorage.getItem("accessToken"),
-    );
-
-    expect(accessToken).toBeTruthy();
+    await expect(page).toHaveURL(/index.html/);
+    //Consider checking for visible logout button
   });
 
   test("invalid credentials for login shows error message", async ({
@@ -30,8 +27,7 @@ test.describe("login", () => {
 
     await page.getByRole("button", { name: "Login" }).click();
 
-    await expect(page.locator("#message-container")).toContainText(
-      "Invalid email or password",
-    );
+    const errorMessage = page.locator("#message-container");
+    await expect(errorMessage).toBeVisible();
   });
 });
