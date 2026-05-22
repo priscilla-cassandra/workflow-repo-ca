@@ -4,7 +4,7 @@ import { headers } from "../headers.js";
 // GET /holidaze/venues — public, but headers() adds the token/API key if present.
 // v2 wraps the list in json.data.
 export async function getVenues() {
-  const url = `${CONFIG.apiUrl}holidaze/venues`;
+  const url = `${CONFIG.apiUrl}venues`;
 
   const response = await fetch(url, { headers: headers(false) });
   const json = await response.json();
