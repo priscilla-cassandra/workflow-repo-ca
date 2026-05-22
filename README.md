@@ -51,10 +51,14 @@ First start development server:
 npm run dev
 ```
 
-Then open a new terminal tab and run either:
+Then open a new terminal tab and run:
 
 ```bash
-   npm run playwright  #Opens Playwright UI for manual/interactive testing
+   npm run vitest  #To run Unit tests
+```
+
+```bash
+   npm run playwright  #Opens Playwright UI for manual/interactive E2E testing
 ```
 
 or
