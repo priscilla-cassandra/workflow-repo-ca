@@ -51,11 +51,13 @@ First start development server:
 npm run dev
 ```
 
-Then open a new terminal tab and run:
+Then open a new terminal tab and run the following for unit testing:
 
 ```bash
    npm run vitest  #To run Unit tests
 ```
+
+Then run either of the following for E2E testing:
 
 ```bash
    npm run playwright  #Opens Playwright UI for manual/interactive E2E testing
