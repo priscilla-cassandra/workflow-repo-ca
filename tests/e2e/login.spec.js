@@ -26,7 +26,14 @@ test.describe("login", () => {
 
     await page.getByRole("button", { name: "Login" }).click();
 
-    const errorMessage = page.locator("#message-container");
-    await expect(errorMessage).toBeVisible();
+    //Wait for the API to respond before checking that the error message is displayed
+    await page.waitForResponse((response) =>
+      response.url().includes("auth/login"),
+    );
+
+    await expect(page.getByRole("alert")).toBeVisible();
+
+    //const errorMessage = page.locator("#message-container");
+    //await expect(errorMessage).toContainText("Invalid email or password");
   });
 });
