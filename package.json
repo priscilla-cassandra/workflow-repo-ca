@@ -12,7 +12,8 @@
     "format": "prettier . --write",
     "prepare": "husky install",
     "vitest": "vitest",
-    "playwright": "npm run env && npx playwright test --ui"
+    "playwright": "npx playwright test --ui",
+    "playwright:run": "npx playwright test"
   },
   "keywords": [],
   "author": "",
