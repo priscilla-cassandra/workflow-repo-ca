@@ -57,6 +57,8 @@ Then open a new terminal tab and run either:
    npm run playwright  #Opens Playwright UI for manual/interactive testing
 ```
 
+or
+
 ```bash
    npm run playwright:run  #Runs all E2E tests automatically in the terminsl
 ```
